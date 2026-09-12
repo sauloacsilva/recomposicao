@@ -47,6 +47,41 @@
         html {
             font-size: 20px;
         }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        li,
+        span,
+        td,
+        th {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        main,
+        article,
+        section,
+        header,
+        footer,
+        nav,
+        div {
+            min-width: 0;
+        }
+
+        img,
+        svg,
+        table {
+            max-width: 100%;
+        }
+
         @media (max-width: 640px) {
             html {
                 font-size: 18px;
@@ -335,9 +370,9 @@
                                 <p class="text-slate-700 leading-relaxed mb-3">
                                     Divida a turma em duplas ou trios e entregue um ou dois cartões de fração para cada grupo calcular a posição correta:
                                 </p>
-                                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-sm text-slate-800 space-y-2 overflow-x-auto max-w-full break-words">
-                                    <p class="break-words"><strong>Estratégia Decimal:</strong> Numerador dividido pelo denominador e multiplicado pela escala (ex: para $100\text{ cm}$, $\frac{1}{4} = 0{,}25 \rightarrow 0{,}25 \times 100\text{ cm} = 25\text{ cm}$).</p>
-                                    <p class="break-words"><strong>Estratégia Geométrica:</strong> Dobradura de tiras de mesmo tamanho para encontrar $\frac{1}{2}$, $\frac{1}{4}$ e $\frac{3}{4}$.</p>
+                                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-[11px] sm:text-sm text-slate-800 space-y-2 max-w-full break-words">
+                                    <p class="leading-relaxed break-words"><strong>Estratégia Decimal:</strong> Numerador dividido pelo denominador e multiplicado pela escala (ex: para $100\text{ cm}$, $\frac{1}{4} = 0{,}25 \rightarrow 0{,}25 \times 100\text{ cm} = 25\text{ cm}$).</p>
+                                    <p class="leading-relaxed break-words"><strong>Estratégia Geométrica:</strong> Dobradura de tiras de mesmo tamanho para encontrar $\frac{1}{2}$, $\frac{1}{4}$ e $\frac{3}{4}$.</p>
                                 </div>
                             </div>
                         </div>
