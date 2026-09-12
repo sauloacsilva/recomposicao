@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Atividade Didática - Conjunto dos Números Inteiros Relativos</title>
+    <!-- MathJax Configuration & Script -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --primary-light: #3b82f6;
+            --accent-color: #d97706;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .header .subtitle {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            font-weight: 400;
+            margin-top: 0.5rem;
+        }
+
+        .badge-container {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            padding: 0.3rem 0.8rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .material-item {
+            background-color: #f1f5f9;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-light);
+        }
+
+        .material-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .bncc-box {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .bncc-code {
+            font-weight: bold;
+            color: #1d4ed8;
+            background: #dbeafe;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 3.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-item::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.2rem;
+            height: 2.2rem;
+            background-color: var(--primary-light);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .step-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .callout {
+            background-color: #fef3c7;
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem 1.2rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.2rem 0;
+        }
+
+        .callout h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .callout ul {
+            margin-left: 1.2rem;
+            color: #78350f;
+        }
+
+        .callout li {
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #f8fafc;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 0.5rem; }
+            .content { padding: 1.2rem; }
+            .header { padding: 1.8rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Atividade Didática de Matemática</h1>
+            <p class="subtitle">Conjunto dos Números Inteiros Relativos ($\mathbb{Z}$): Módulo, Distância e Simetria</p>
+            <div class="badge-container">
+                <span class="badge">7º ao 9º Ano</span>
+                <span class="badge">Números Inteiros ($\mathbb{Z}$)</span>
+                <span class="badge">Recomposição de Aprendizagem</span>
+            </div>
+        </header>
+
+        <main class="content">
+            <!-- MATERIAIS -->
+            <section class="section">
+                <h2 class="section-title">📦 Materiais Necessários</h2>
+                <div class="materials-grid">
+                    <div class="material-item">
+                        <h4>Suporte Principal</h4>
+                        <p>Tira longa de papel pardo (kraft) ou bobina de papel fixada horizontalmente na parede.</p>
+                    </div>
+                    <div class="material-item">
+                        <h4>Escala de Medição</h4>
+                        <p>Fita métrica amarela ou trena fixada na parte superior do painel.</p>
+                    </div>
+                    <div class="material-item">
+                        <h4>Fichas Numéricas Inferiores</h4>
+                        <p>Cartões com o título "Conjunto dos Números Inteiros Relativos", reticências ($\dots$) e os números inteiros de $-5$ a $+5$.</p>
+                    </div>
+                    <div class="material-item">
+                        <h4>Fichas de Módulo (Distância)</h4>
+                        <p>Marcadores/quadrados coloridos superiores com os valores de distância ao zero ($5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5$).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HABILIDADES DA BNCC -->
+            <section class="section">
+                <h2 class="section-title">🎯 Habilidades do Currículo (BNCC)</h2>
+                
+                <div class="bncc-box">
+                    <span class="bncc-code">EF07MA03</span>
+                    <p>Comparar e ordenar números inteiros em diferentes contextos, incluindo o histórico, associá-los a pontos da reta numérica e utilizá-los em situações que envolvam adição e subtração.</p>
+                </div>
+
+                <div class="bncc-box">
+                    <span class="bncc-code">EF07MA04</span>
+                    <p>Resolver e elaborar problemas que envolvam operações com números inteiros.</p>
+                </div>
+            </section>
+
+            <!-- SÉRIE INDICADA -->
+            <section class="section">
+                <h2 class="section-title">🏫 Série Indicada</h2>
+                <ul>
+                    <li><strong>7º Ano do Ensino Fundamental:</strong> Fase de introdução do conjunto dos números inteiros ($\mathbb{Z}$), exploração da origem (zero), sentido/orientação e conceito de módulo (distância).</li>
+                    <li><strong>8º e 9º Ano do Ensino Fundamental:</strong> Recomposição de aprendizagem para superar a confusão entre o sinal do número e o seu módulo/valor absoluto.</li>
+                </ul>
+            </section>
+
+            <!-- PASSO A PASSO -->
+            <section class="section">
+                <h2 class="section-title">🚀 Como Usar com os Estudantes (Passo a Passo)</h2>
+                
+                <ol class="step-list">
+                    <li class="step-item">
+                        <div class="step-title">Montagem da Reta e Fixação da Origem ($0$)</div>
+                        <p>Fixe o painel de papel pardo com a fita métrica. Defina o ponto zero no centro. Cole as reticências ($\dots$) nas pontas para representar que o conjunto $\mathbb{Z}$ é infinito à esquerda (negativos) e à direita (positivos).</p>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-title">Posicionamento dos Números Inteiros Relativos</div>
+                        <p>Distribua os cartões grandes de $-5$ a $+5$ para os alunos. Cada estudante cola seu número respeitando o espaçamento regular definido na fita métrica (ex: intervalos de $10\text{ cm}$ ou $15\text{ cm}$).</p>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-title">Construção do Conceito de Módulo / Distância</div>
+                        <p>Apresente os cartões coloridos superiores (que contêm apenas valores não-negativos: $5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5$). Desafie os estudantes a responderem: <em>"Quantos passos / centímetros este número está distante da origem zero?"</em></p>
+                        <p>Conclua com a turma que tanto o $-3$ quanto o $+3$ estão a $3$ unidades de distância do zero. Essa distância é chamada de <strong>Módulo</strong> ou <strong>Valor Absoluto</strong> (representado por $|-3| = 3$ e $|+3| = 3$).</p>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-title">Análise de Opostos e Simétricos</div>
+                        <p>Explore com a turma que números que estão à mesma distância do zero, mas em sentidos opostos, são chamados de **números opostos ou simétricos**.</p>
+                    </li>
+                </ol>
+
+                <div class="callout">
+                    <h4>💬 Questões para Mediação Pedagógica:</h4>
+                    <ul>
+                        <li><em>"Por que a marcação superior acima do $-4$ mostra o número $4$ positivo?"</em></li>
+                        <li><em>"Qual a diferença entre o número relacional ($-3$) e a sua distância em relação ao zero ($|-3|$)?"</em></li>
+                        <li><em>"Quem é maior: $-5$ ou $-1$? E quem tem o maior módulo (distância do zero)?"</em></li>
+                        <li><em>"O que acontece com o valor de um número negativo à medida que nos afastamos do zero para a esquerda?"</em></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- TABELA GUIA DE CONVERSÃO -->
+            <section class="section">
+                <h2 class="section-title">📊 Guia de Referência de Inteiros, Distância e Módulo</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Número Inteiro ($x$)</th>
+                            <th>Sinal / Sentido</th>
+                            <th>Módulo / Valor Absoluto ($|x|$)</th>
+                            <th>Número Oposto / Simétrico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>$-5$</td><td>Negativo (Esquerda)</td><td>$5$</td><td>$+5$</td></tr>
+                        <tr><td>$-4$</td><td>Negativo (Esquerda)</td><td>$4$</td><td>$+4$</td></tr>
+                        <tr><td>$-3$</td><td>Negativo (Esquerda)</td><td>$3$</td><td>$+3$</td></tr>
+                        <tr><td>$-2$</td><td>Negativo (Esquerda)</td><td>$2$</td><td>$+2$</td></tr>
+                        <tr><td>$-1$</td><td>Negativo (Esquerda)</td><td>$1$</td><td>$+1$</td></tr>
+                        <tr><td>$0$</td><td>Neutro (Origem)</td><td>$0$</td><td>$0$</td></tr>
+                        <tr><td>$+1$</td><td>Positivo (Direita)</td><td>$1$</td><td>$-1$</td></tr>
+                        <tr><td>$+2$</td><td>Positivo (Direita)</td><td>$2$</td><td>$-2$</td></tr>
+                        <tr><td>$+3$</td><td>Positivo (Direita)</td><td>$3$</td><td>$-3$</td></tr>
+                        <tr><td>$+4$</td><td>Positivo (Direita)</td><td>$4$</td><td>$+4$</td></tr>
+                        <tr><td>$+5$</td><td>Positivo (Direita)</td><td>$5$</td><td>$-5$</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Material de Apoio Didático — Recomposição de Aprendizagem em Matemática</p>
+        </footer>
+    </div>
+</body>
+</html>

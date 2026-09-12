@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomposição de Matemática: Números</title>
+    <meta name="description"
+        content="Sequências didáticas e planos de aula para o ensino e recomposição de números racionais e inteiros na reta numérica, alinhadas à BNCC.">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f5ff',
+                            100: '#e0ebff',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                            900: '#172554',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Escala tipográfica dobrada / ampliada para máxima legibilidade */
+        html {
+            font-size: 20px;
+        }
+
+        @media (max-width: 640px) {
+            html {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col selection:bg-blue-100 selection:text-blue-900">
+
+    <!-- Cabeçalho Institucional Limpo -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3.5 group">
+                <div
+                    class="w-11 h-11 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="9" x2="4" y2="15"></line>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="20" y1="9" x2="20" y2="15"></line>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-lg font-bold text-slate-900 tracking-tight block">Recomposição de
+                        Matemática</span>
+                    <span class="text-sm text-slate-500 block font-normal">Números • Ensino Fundamental</span>
+                </div>
+            </a>
+
+            <nav class="flex items-center gap-6 text-base font-medium text-slate-700">
+                <a href="#atividades" class="hover:text-blue-700 transition-colors">Atividades</a>
+                <a href="#bncc" class="hover:text-blue-700 transition-colors">Habilidades BNCC</a>
+                <a href="reta01.html"
+                    class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-700 text-white text-sm font-semibold hover:bg-blue-800 transition-colors">
+                    <span>Acessar Atividade 01</span>
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="flex-grow">
+
+        <!-- Hero Section Sóbria e com Tipografia Ampla -->
+        <section class="bg-white border-b border-slate-200 py-14 sm:py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+                <div
+                    class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-sm font-medium text-slate-700 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                    <span>Material Pedagógico de Apoio</span>
+                </div>
+
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+                    Recomposição de Matemática: Números
+                </h1>
+
+                <p class="text-lg sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-10">
+                    Propostas didáticas práticas e estruturadas para o ensino e a consolidação de números racionais
+                    e inteiros na reta numérica, alinhadas à BNCC.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a href="#atividades"
+                        class="px-6 py-3.5 rounded-lg bg-blue-700 hover:bg-blue-800 text-white text-base font-semibold transition-colors shadow-sm inline-flex items-center gap-2.5">
+                        <span>Explorar Atividades</span>
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <polyline points="19 12 12 19 5 12"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#bncc"
+                        class="px-6 py-3.5 rounded-lg bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 text-base font-medium transition-colors">
+                        Consultar Habilidades
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Atividades Didáticas -->
+        <section id="atividades" class="py-14 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                    Sequências Didáticas Disponíveis
+                </h2>
+                <p class="text-base text-slate-600 mt-2">
+                    Selecione uma atividade para visualizar o plano completo com objetivos, materiais e metodologia de
+                    aplicação.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Atividade 1: Reta 0 a 1 -->
+                <article
+                    class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:border-slate-300 transition-all flex flex-col">
+                    <div class="aspect-video w-full bg-slate-100 overflow-hidden relative border-b border-slate-200">
+                        <img src="reta01.png" alt="Reta numérica de números racionais no intervalo de 0 a 1"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-md text-sm font-semibold text-slate-800 border border-slate-200/80">
+                            6º ao 9º Ano
+                        </div>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-sm font-bold text-blue-700 mb-2">
+                                <span>Atividade 01</span>
+                                <span class="text-slate-300">•</span>
+                                <span>Reta Numérica</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">
+                                Reta Numérica Interativa (0 a 1)
+                            </h3>
+                            <p class="text-base text-slate-600 leading-relaxed mb-6">
+                                Atividade prática com fita métrica e cartões para localizar, comparar e ordenar números
+                                racionais no intervalo estrito de 0 a 1.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-mono font-medium">EF06MA08</span>
+                                <span
+                                    class="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-mono font-medium">EF06MA09</span>
+                                <span
+                                    class="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-mono font-medium">EF07MA10</span>
+                            </div>
+                        </div>
+                        <a href="reta01.html"
+                            class="inline-flex items-center justify-between w-full px-5 py-3 rounded-lg bg-slate-900 hover:bg-blue-700 text-white text-sm font-semibold transition-colors">
+                            <span>Acessar Plano de Aula</span>
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Atividade 2: Reta dos Racionais Positivos e Negativos -->
+                <article
+                    class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:border-slate-300 transition-all flex flex-col">
+                    <div class="aspect-video w-full bg-slate-100 overflow-hidden relative border-b border-slate-200">
+                        <img src="racionais.png" alt="Reta numérica de racionais positivos e negativos"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-md text-sm font-semibold text-slate-800 border border-slate-200/80">
+                            7º ao 9º Ano
+                        </div>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-sm font-bold text-blue-700 mb-2">
+                                <span>Atividade 02</span>
+                                <span class="text-slate-300">•</span>
+                                <span>Conjunto dos Racionais (Q)</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">
+                                Reta dos Racionais: Positivos e Negativos
+                            </h3>
+                            <p class="text-base text-slate-600 leading-relaxed mb-6">
+                                Exploração formal dos números racionais com origem no zero, simetria, frações
+                                impróprias, opostos e ordenação linear.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-mono font-medium">EF07MA03</span>
+                                <span
+                                    class="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-mono font-medium">EF07MA10</span>
+                            </div>
+                        </div>
+                        <a href="reta_numerica_racionais.html"
+                            class="inline-flex items-center justify-between w-full px-5 py-3 rounded-lg bg-slate-900 hover:bg-blue-700 text-white text-sm font-semibold transition-colors">
+                            <span>Acessar Plano de Aula</span>
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Atividade 3: Reta dos Números Inteiros (Z) -->
+                <article
+                    class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:border-slate-300 transition-all flex flex-col">
+                    <div class="aspect-video w-full bg-slate-100 overflow-hidden relative border-b border-slate-200">
+                        <img src="inteiro.png" alt="Conjunto dos Números Inteiros Relativos na Reta Numérica"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-md text-sm font-semibold text-slate-800 border border-slate-200/80">
+                            7º ao 9º Ano
+                        </div>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-sm font-bold text-blue-700 mb-2">
+                                <span>Atividade 03</span>
+                                <span class="text-slate-300">•</span>
+                                <span>Conjunto dos Inteiros (Z)</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">
+                                Reta Numérica dos Números Inteiros
+                            </h3>
+                            <p class="text-base text-slate-600 leading-relaxed mb-6">
+                                Introdução estruturada aos números inteiros negativos, módulo (valor absoluto), simetria
+                                e deslocamentos direcionados.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-mono font-medium">EF07MA03</span>
+                                <span
+                                    class="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-mono font-medium">EF07MA04</span>
+                                <span
+                                    class="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-mono font-medium">Módulo
+                                    |X|</span>
+                            </div>
+                        </div>
+                        <a href="reta_numerica_inteiros.html"
+                            class="inline-flex items-center justify-between w-full px-5 py-3 rounded-lg bg-slate-900 hover:bg-blue-700 text-white text-sm font-semibold transition-colors">
+                            <span>Acessar Plano de Aula</span>
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Atividade 4: Trilha dos Números Inteiros (Jogo) -->
+                <article
+                    class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:border-slate-300 transition-all flex flex-col">
+                    <div class="aspect-video w-full bg-slate-100 overflow-hidden relative border-b border-slate-200">
+                        <img src="TrilhaInteiros.png" alt="Tabuleiro da Trilha dos Números Inteiros com Peões"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-md text-sm font-semibold text-slate-800 border border-slate-200/80">
+                            7º ao 9º Ano
+                        </div>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-sm font-bold text-blue-700 mb-2">
+                                <span>Atividade 04</span>
+                                <span class="text-slate-300">•</span>
+                                <span>Jogo de Tabuleiro (Mesa)</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">
+                                Trilha dos Números Inteiros
+                            </h3>
+                            <p class="text-base text-slate-600 leading-relaxed mb-6">
+                                Jogo de tabuleiro de mesa com peões e par de dados (positivo e negativo) para calcular
+                                adição de inteiros e deslocamentos lineares do -10 ao +10.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-mono font-medium">EF07MA03</span>
+                                <span
+                                    class="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-mono font-medium">EF07MA04</span>
+                                <span
+                                    class="px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-mono font-medium">Jogo
+                                    de Mesa</span>
+                            </div>
+                        </div>
+                        <a href="trilha_inteiros.html"
+                            class="inline-flex items-center justify-between w-full px-5 py-3 rounded-lg bg-slate-900 hover:bg-blue-700 text-white text-sm font-semibold transition-colors">
+                            <span>Acessar Plano de Aula</span>
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Sequência de Objetos do Conhecimento -->
+            <div class="mt-16 pt-10 border-t border-slate-200">
+                <div class="mb-8">
+                    <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Objetos do Conhecimento:
+                        Sequência de Recomposição</h3>
+                    <p class="text-base text-slate-600 mt-2">Progressão dos conceitos fundamentais que estruturam a
+                        recomposição de aprendizagem em Números no Ensino Fundamental II.</p>
+                </div>
+
+                <ol class="space-y-3">
+
+                    <li class="flex gap-4 p-5 rounded-lg bg-white border border-slate-200">
+                        <span
+                            class="w-8 h-8 rounded-md bg-blue-700 text-white flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">1</span>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base mb-1">Comparação e Ordenação de Racionais
+                                Positivos — Reta Numérica (0 a 1)</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">Localização de frações no intervalo de $0$
+                                a $1$ com fita métrica. Estratégias decimal e geométrica para comparação e ordenação
+                                linear. <span class="font-semibold text-blue-700">Atividade 01</span></p>
+                        </div>
+                    </li>
+
+                    <li class="flex gap-4 p-5 rounded-lg bg-white border border-slate-200">
+                        <span
+                            class="w-8 h-8 rounded-md bg-blue-700 text-white flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">2</span>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base mb-1">Números Racionais Positivos e Negativos
+                                — Opostos e Simetria — Reta Numérica (ℚ)</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">Extensão para os negativos. Origem no
+                                zero, simetria, números opostos ($a$ e $-a$) e ordenação linear completa. <span
+                                    class="font-semibold text-blue-700">Atividade 02</span></p>
+                        </div>
+                    </li>
+
+                    <li class="flex gap-4 p-5 rounded-lg bg-white border border-slate-200">
+                        <span
+                            class="w-8 h-8 rounded-md bg-blue-700 text-white flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">3</span>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base mb-1">Conjunto dos Números Inteiros
+                                ($\mathbb{Z}$) — Módulo e Distância à Origem</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">Inteiros relativos, valor absoluto
+                                (módulo) como distância ao zero e simetria. Diferença entre o sinal do número e a sua
+                                magnitude. <span class="font-semibold text-blue-700">Atividade 03</span></p>
+                        </div>
+                    </li>
+
+                    <li class="flex gap-4 p-5 rounded-lg bg-white border border-slate-200">
+                        <span
+                            class="w-8 h-8 rounded-md bg-blue-700 text-white flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">4</span>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base mb-1">Adição e Subtração de Números Inteiros —
+                                Deslocamentos na Reta — Jogo de Tabuleiro</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">Operações com inteiros de sinais distintos
+                                por meio de deslocamentos lineares. Consolidação lúdica com o jogo Trilha dos Inteiros.
+                                <span class="font-semibold text-blue-700">Atividade 04</span></p>
+                        </div>
+                    </li>
+
+
+        </section>
+
+        <!-- Seção BNCC -->
+        <section id="bncc" class="bg-white border-t border-slate-200 py-14 sm:py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="mb-10 text-center sm:text-left">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                        Alinhamento Curricular com a BNCC
+                    </h2>
+                    <p class="text-base text-slate-600 mt-2">
+                        Habilidades centrais do Ensino Fundamental contempladas nestas sequências didáticas.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div
+                        class="p-5 rounded-lg border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-start gap-4">
+                        <span
+                            class="font-mono text-sm font-bold text-blue-800 bg-blue-100 px-3 py-1 rounded w-fit">EF06MA08</span>
+                        <p class="text-base text-slate-800 leading-relaxed">
+                            Reconhecer que os números racionais positivos podem ser expressos nas formas fracionária e decimal, estabelecer relações entre essas representações, passando de uma representação para outra, e relacioná-los a pontos da reta numérica.
+                        </p>
+                    </div>
+
+                    <div
+                        class="p-5 rounded-lg border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-start gap-4">
+                        <span
+                            class="font-mono text-sm font-bold text-blue-800 bg-blue-100 px-3 py-1 rounded w-fit">EF06MA09</span>
+                        <p class="text-base text-slate-800 leading-relaxed">
+                            Resolver e elaborar problemas que envolvam o cálculo da fração de uma quantidade e cujo resultado seja um número natural, com e sem uso de calculadora.
+                        </p>
+                    </div>
+
+                    <div
+                        class="p-5 rounded-lg border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-start gap-4">
+                        <span
+                            class="font-mono text-sm font-bold text-blue-800 bg-blue-100 px-3 py-1 rounded w-fit">EF07MA03</span>
+                        <p class="text-base text-slate-800 leading-relaxed">
+                            Comparar e ordenar números inteiros em diferentes contextos, incluindo o histórico, associá-los a pontos da reta numérica e utilizá-los em situações que envolvam adição e subtração.
+                        </p>
+                    </div>
+
+                    <div
+                        class="p-5 rounded-lg border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-start gap-4">
+                        <span
+                            class="font-mono text-sm font-bold text-blue-800 bg-blue-100 px-3 py-1 rounded w-fit">EF07MA04</span>
+                        <p class="text-base text-slate-800 leading-relaxed">
+                            Resolver e elaborar problemas que envolvam operações com números inteiros.
+                        </p>
+                    </div>
+
+                    <div
+                        class="p-5 rounded-lg border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-start gap-4">
+                        <span
+                            class="font-mono text-sm font-bold text-blue-800 bg-blue-100 px-3 py-1 rounded w-fit">EF07MA10</span>
+                        <p class="text-base text-slate-800 leading-relaxed">
+                            Comparar e ordenar números racionais em diferentes contextos e associá-los a pontos da reta numérica.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé com Créditos -->
+    <footer class="bg-white border-t border-slate-200 py-10 px-4 sm:px-6 text-sm text-slate-500">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2.5">
+                <span class="font-semibold text-slate-800">Recomposição de Matemática: Números</span>
+                <span>•</span>
+                <span>Ensino Fundamental</span>
+            </div>
+            <div class="text-center sm:text-right">
+                <p>Material de apoio didático estruturado para professores e equipes pedagógicas.</p>
+                <p class="mt-1.5 font-semibold text-slate-700">Atividades elaboradas pelo Prof. Jaelson Dantas</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

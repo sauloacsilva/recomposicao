@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 04: Trilha dos Números Inteiros — Recomposição de Matemática</title>
+    <meta name="description" content="Plano de aula e guia prático do jogo pedagógico Trilha dos Números Inteiros para prática de adição, subtração e deslocamentos na reta numérica.">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- MathJax 3 com escala ampliada -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            chtml: {
+                scale: 1.15
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Escala tipográfica dobrada / ampliada */
+        html {
+            font-size: 20px;
+        }
+        @media (max-width: 640px) {
+            html {
+                font-size: 18px;
+            }
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: #0f172a !important;
+                padding: 0 !important;
+                font-size: 16px !important;
+            }
+            html {
+                font-size: 16px !important;
+            }
+            .container-print {
+                max-width: 100% !important;
+                border: none !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900 pb-16">
+
+    <!-- Barra Superior de Navegação Limpa (Sem Emojis, Ícones SVG) -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-40 no-print">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-700 transition-colors">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span>Início</span>
+                </a>
+                <span class="text-slate-300">/</span>
+                <span class="text-sm text-slate-500 font-medium">Atividade 04: Trilha dos Inteiros</span>
+            </div>
+
+            <div class="flex items-center gap-2.5">
+                <a href="reta_numerica_inteiros.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-200 hover:bg-slate-50 text-sm font-medium text-slate-700 transition-colors">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span>Ativ. 03</span>
+                </a>
+                <button onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-blue-700 hover:bg-blue-800 text-white text-sm font-medium transition-colors">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span>Imprimir</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Documento Principal -->
+    <main class="max-w-4xl mx-auto mt-8 px-4 sm:px-6 container-print">
+        <article class="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
+
+            <!-- Cabeçalho do Plano de Aula -->
+            <header class="p-7 sm:p-10 border-b border-slate-200 bg-white">
+                <div class="flex flex-wrap items-center gap-2.5 mb-4">
+                    <span class="px-3 py-1 rounded text-sm font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+                        Ensino Fundamental II
+                    </span>
+                    <span class="px-3 py-1 rounded text-sm font-semibold bg-slate-100 text-slate-800">
+                        7º ao 9º Ano
+                    </span>
+                    <span class="px-3 py-1 rounded text-sm font-semibold bg-slate-100 text-slate-800">
+                        Jogo Pedagógico
+                    </span>
+                    <span class="px-3 py-1 rounded text-sm font-semibold bg-slate-100 text-slate-800">
+                        Recomposição
+                    </span>
+                </div>
+
+                <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
+                    Trilha dos Números Inteiros: Operações e Deslocamentos
+                </h1>
+                <p class="text-base sm:text-xl text-slate-600 leading-relaxed max-w-3xl">
+                    Dinâmica de jogo de tabuleiro de mesa para praticar adição e subtração com números positivos e negativos a partir de deslocamentos lineares na reta com peões.
+                </p>
+
+                <!-- Grade de Metadados -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-100 text-sm">
+                    <div>
+                        <span class="text-slate-500 block mb-1">Duração</span>
+                        <span class="font-bold text-slate-900 text-base">1 a 2 aulas</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block mb-1">Organização</span>
+                        <span class="font-bold text-slate-900 text-base">Grupos de até 5 alunos</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block mb-1">Formato</span>
+                        <span class="font-bold text-slate-900 text-base">Jogo de Tabuleiro (Mesa)</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block mb-1">Conteúdo Central</span>
+                        <span class="font-bold text-slate-900 text-base">Adição & Subtração em $\mathbb{Z}$</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Imagem Didática do Tabuleiro Real (trilhaInteiros.png) -->
+            <div class="bg-slate-100 border-b border-slate-200">
+                <img src="trilhaInteiros.png" alt="Tabuleiro da Trilha dos Números Inteiros com 5 raias para peões" class="w-full h-auto object-cover max-h-[460px]">
+                <div class="px-6 py-3 bg-slate-50 border-t border-slate-200 text-sm text-slate-600 flex items-center gap-2.5">
+                    <svg class="w-5 h-5 text-slate-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                    <span>Registro prático de aplicação em mesa (Tabuleiro com 5 raias paralelas, partida no 0 e extremidades de saída em $-10$ e $+10$)</span>
+                </div>
+            </div>
+
+            <!-- Corpo de Conteúdo Pedagógico -->
+            <div class="p-7 sm:p-10 space-y-12">
+
+                <!-- 1. Materiais -->
+                <section>
+                    <div class="flex items-center gap-2.5 mb-5 pb-3 border-b border-slate-100">
+                        <svg class="w-6 h-6 text-blue-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Materiais Necessários</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                        <div class="p-4 rounded-lg border border-slate-200 bg-slate-50/50">
+                            <span class="font-bold text-slate-900 block text-base mb-1.5">Tabuleiro de Mesa com 5 Raias</span>
+                            <p class="text-slate-700 leading-relaxed">Tabuleiro horizontal rígido (papel cartão, papelão paraná ou impresso plastificado) para o centro da mesa do grupo, com 5 faixas paralelas e casas de $-10$ a $+10$.</p>
+                        </div>
+
+                        <div class="p-4 rounded-lg border border-slate-200 bg-slate-50/50">
+                            <span class="font-bold text-slate-900 block text-base mb-1.5">Peões dos Jogadores</span>
+                            <p class="text-slate-700 leading-relaxed">5 peões de jogos de tabuleiro em cores distintas (um peão exclusivo para cada estudante movimentar ao longo de sua raia).</p>
+                        </div>
+
+                        <div class="p-4 rounded-lg border border-slate-200 bg-slate-50/50">
+                            <span class="font-bold text-slate-900 block text-base mb-1.5">Par de Dados (Positivo e Negativo)</span>
+                            <p class="text-slate-700 leading-relaxed">2 dados numéricos de cores distintas rolados simultaneamente: 1 dado positivo (ex.: azul ou verde, com valores de $+1$ a $+6$) e 1 dado negativo (ex.: vermelho, com valores de $-1$ a $-6$).</p>
+                        </div>
+
+                        <div class="p-4 rounded-lg border border-slate-200 bg-slate-50/50">
+                            <span class="font-bold text-slate-900 block text-base mb-1.5">Folha de Registro e Apoio</span>
+                            <p class="text-slate-700 leading-relaxed">Bloco de anotações ou folha de apoio para registro das sentenças matemáticas calculadas e validação das jogadas pelo grupo.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Habilidades BNCC -->
+                <section>
+                    <div class="flex items-center gap-2.5 mb-5 pb-3 border-b border-slate-100">
+                        <svg class="w-6 h-6 text-blue-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="6"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                        </svg>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Habilidades do Currículo (BNCC)</h2>
+                    </div>
+
+                    <div class="space-y-3.5">
+                        <div class="p-4 rounded-lg border border-slate-200 bg-slate-50 flex items-start justify-between gap-4">
+                            <div class="space-y-1.5">
+                                <span class="font-mono text-sm font-bold text-blue-800 bg-blue-100 px-3 py-1 rounded inline-block">EF07MA03</span>
+                                <p class="text-base text-slate-800 leading-relaxed">
+                                    Comparar e ordenar números inteiros em diferentes contextos, incluindo o histórico, associá-los a pontos da reta numérica e utilizá-los em situações que envolvam adição e subtração.
+                                </p>
+                            </div>
+                            <button onclick="navigator.clipboard.writeText('EF07MA03'); alert('Código copiado!')" class="shrink-0 p-2 rounded hover:bg-slate-200 text-slate-600 no-print" title="Copiar código">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="p-4 rounded-lg border border-slate-200 bg-slate-50 flex items-start justify-between gap-4">
+                            <div class="space-y-1.5">
+                                <span class="font-mono text-sm font-bold text-blue-800 bg-blue-100 px-3 py-1 rounded inline-block">EF07MA04</span>
+                                <p class="text-base text-slate-800 leading-relaxed">
+                                    Resolver e elaborar problemas que envolvam operações com números inteiros.
+                                </p>
+                            </div>
+                            <button onclick="navigator.clipboard.writeText('EF07MA04'); alert('Código copiado!')" class="shrink-0 p-2 rounded hover:bg-slate-200 text-slate-600 no-print" title="Copiar código">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Série Indicada -->
+                <section>
+                    <div class="flex items-center gap-2.5 mb-5 pb-3 border-b border-slate-100">
+                        <svg class="w-6 h-6 text-blue-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        </svg>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Série Indicada & Aplicação Pedagógica</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base">
+                        <div class="p-5 rounded-lg border border-slate-200 bg-white">
+                            <h3 class="font-bold text-slate-900 mb-1.5 text-lg">7º Ano do Ensino Fundamental</h3>
+                            <p class="text-slate-600 leading-relaxed">Atividade central para fixação de adição e subtração com inteiros, transformando o cálculo abstrato em uma movimentação física e visual compreensível.</p>
+                        </div>
+                        <div class="p-5 rounded-lg border border-slate-200 bg-white">
+                            <h3 class="font-bold text-slate-900 mb-1.5 text-lg">8º e 9º Ano (Recomposição)</h3>
+                            <p class="text-slate-600 leading-relaxed">Recurso dinâmico para resgatar estudantes que travam em equações do 1º grau ou que erram sistematicamente operações com números negativos.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Passo a Passo (Regras do Jogo) -->
+                <section>
+                    <div class="flex items-center gap-2.5 mb-5 pb-3 border-b border-slate-100">
+                        <svg class="w-6 h-6 text-blue-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="8" y1="6" x2="21" y2="6"></line>
+                            <line x1="8" y1="12" x2="21" y2="12"></line>
+                            <line x1="8" y1="18" x2="21" y2="18"></line>
+                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                        </svg>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Como Usar com os Estudantes (Regras do Jogo)</h2>
+                    </div>
+
+                    <div class="space-y-6 text-base">
+                        <div class="flex gap-4">
+                            <div class="w-8 h-8 rounded-md bg-slate-900 text-white flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">1</div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 mb-1 text-lg">Posicionamento Inicial no Tabuleiro</h3>
+                                <p class="text-slate-700 leading-relaxed">
+                                    Organize a turma em grupos de até 5 estudantes sentados ao redor da mesa. O tabuleiro é colocado horizontalmente no centro da mesa. Cada jogador escolhe uma das cinco raias e coloca o seu <strong>peão</strong> na casa central de partida: <strong>$0$ (INÍCIO)</strong>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-8 h-8 rounded-md bg-slate-900 text-white flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">2</div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 mb-1 text-lg">Rolagem dos Dois Dados na Mesa (Positivo e Negativo)</h3>
+                                <p class="text-slate-700 leading-relaxed mb-3">
+                                    Na sua vez, o estudante lança simultaneamente os dois dados sobre a mesa: o <strong>dado positivo</strong> (ex.: azul) e o <strong>dado negativo</strong> (ex.: vermelho). O estudante realiza a adição dos inteiros para encontrar o saldo resultante da jogada:
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                                    <div class="p-3.5 rounded-lg bg-blue-50 border border-blue-200">
+                                        <span class="font-bold text-blue-900 block mb-1">Saldo Positivo ($+$, dado positivo maior):</span>
+                                        O peão desloca-se para a <strong>direita</strong> pela diferença (ex.: $+5$ e $-2 \rightarrow (+5) + (-2) = +3$, avança 3 casas).
+                                    </div>
+                                    <div class="p-3.5 rounded-lg bg-rose-50 border border-rose-200">
+                                        <span class="font-bold text-rose-900 block mb-1">Saldo Negativo ($-$, dado negativo maior):</span>
+                                        O peão desloca-se para a <strong>esquerda</strong> pela diferença (ex.: $+2$ e $-6 \rightarrow (+2) + (-6) = -4$, recua 4 casas).
+                                    </div>
+                                </div>
+                                <p class="text-xs sm:text-sm text-slate-500 mt-2">
+                                    *Caso os dois dados caiam no mesmo número (ex.: $+3$ e $-3$), o saldo é $0$ e o peão permanece onde está (equilíbrio nulo de números opostos).*
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-8 h-8 rounded-md bg-slate-900 text-white flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">3</div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 mb-1 text-lg">Regra de Verbalização e Conferência Obrigatória</h3>
+                                <p class="text-slate-700 leading-relaxed mb-2">
+                                    Antes de movimentar o peão na raia do tabuleiro, o jogador deve enunciar o cálculo dos dados e a posição resultante em voz alta para conferência do grupo:
+                                </p>
+                                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-sm text-slate-800 space-y-1">
+                                    <p><em>"Meu peão estava em $-3$. Tirei $+5$ no positivo e $-2$ no negativo; o saldo foi $(+5) + (-2) = +3$."</em></p>
+                                    <p class="font-semibold text-blue-900"><em>"Calculando a nova posição: $-3 + 3 = 0$. Vou para a casa de início!"</em></p>
+                                    <p class="text-xs text-slate-500 pt-1">Somente após a aprovação dos colegas o peão é movimentado na raia.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-8 h-8 rounded-md bg-slate-900 text-white flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">4</div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 mb-1 text-lg">Condição de Vitória no Tabuleiro</h3>
+                                <p class="text-slate-700 leading-relaxed">
+                                    Ganha o jogo o primeiro estudante que conduzir o seu peão a qualquer uma das extremidades de <strong>SAÍDA ($-10$ ou $+10$)</strong> do tabuleiro, consolidando a ideia de que tanto o avanço positivo quanto o recuo negativo representam distâncias simétricas a partir da origem (módulo).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mediação Pedagógica (Perguntas) -->
+                    <div class="mt-8 p-5 rounded-lg bg-amber-50/80 border border-amber-200">
+                        <div class="flex items-center gap-2.5 text-amber-900 font-bold text-base mb-3">
+                            <svg class="w-5 h-5 text-amber-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            <span>Perguntas para Mediação em Sala</span>
+                        </div>
+                        <ul class="space-y-2 text-sm sm:text-base text-amber-950 list-disc list-inside">
+                            <li><em>"Se você tirou $+4$ no dado positivo e $-4$ no dado negativo, o que acontece com o seu peão? Que conceito matemático isso ilustra (números opostos ou simétricos)?"</em></li>
+                            <li><em>"Para o peão se mover para a esquerda, qual dos dois dados precisa ter o maior valor absoluto?"</em></li>
+                            <li><em>"Se o seu peão está na casa $+1$ e você tira $+2$ no positivo e $-5$ no negativo, qual é o saldo da jogada e em qual casa o peão vai parar?"</em></li>
+                            <li><em>"Qual é a maior quantidade de casas que um peão consegue avançar em uma única rodada? (Dica: $+6$ no positivo e $-1$ no negativo)."</em></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 5. Tabela Guia de Exemplos de Jogadas -->
+                <section>
+                    <div class="flex items-center justify-between mb-5 pb-3 border-b border-slate-100">
+                        <div class="flex items-center gap-2.5">
+                            <svg class="w-6 h-6 text-blue-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="3" y1="15" x2="21" y2="15"></line>
+                                <line x1="9" y1="3" x2="9" y2="21"></line>
+                            </svg>
+                            <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Guia de Exemplos de Jogadas e Deslocamentos</h2>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto border border-slate-200 rounded-lg">
+                        <table class="w-full text-left text-sm sm:text-base border-collapse">
+                            <thead>
+                                <tr class="bg-slate-100 border-b border-slate-200 text-slate-800 font-bold">
+                                    <th class="py-3 px-4 text-center">Posição Atual</th>
+                                    <th class="py-3 px-4 text-center text-blue-800">Dado Positivo</th>
+                                    <th class="py-3 px-4 text-center text-rose-800">Dado Negativo</th>
+                                    <th class="py-3 px-4 text-center">Saldo da Jogada</th>
+                                    <th class="py-3 px-4 text-center">Sentença na Raia</th>
+                                    <th class="py-3 px-4 text-center">Nova Casa</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-800">
+                                <tr>
+                                    <td class="py-2.5 px-4 text-center font-bold text-slate-900">$0$ (Início)</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-blue-700">$+5$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-rose-700">$-2$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-blue-700">$+3$ (3 à dir.)</td>
+                                    <td class="py-2.5 px-4 text-center font-mono text-sm">$0 + (+3) = +3$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-blue-700">$+3$</td>
+                                </tr>
+                                <tr class="bg-slate-50/50">
+                                    <td class="py-2.5 px-4 text-center font-bold text-blue-900">$+3$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-blue-700">$+1$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-rose-700">$-6$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-rose-700">$-5$ (5 à esq.)</td>
+                                    <td class="py-2.5 px-4 text-center font-mono text-sm">$+3 + (-5) = -2$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-rose-700">$-2$</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-4 text-center font-bold text-rose-700">$-2$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-blue-700">$+4$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-rose-700">$-4$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-slate-600">$0$ (Neutro)</td>
+                                    <td class="py-2.5 px-4 text-center font-mono text-sm">$-2 + 0 = -2$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-slate-700">$-2$ (Parado)</td>
+                                </tr>
+                                <tr class="bg-slate-50/50">
+                                    <td class="py-2.5 px-4 text-center font-bold text-rose-700">$-2$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-blue-700">$+2$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-rose-700">$-5$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-rose-700">$-3$ (3 à esq.)</td>
+                                    <td class="py-2.5 px-4 text-center font-mono text-sm">$-2 + (-3) = -5$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-rose-700">$-5$</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-4 text-center font-bold text-rose-700">$-5$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-blue-700">$+6$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-rose-700">$-1$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-blue-700">$+5$ (5 à dir.)</td>
+                                    <td class="py-2.5 px-4 text-center font-mono text-sm">$-5 + (+5) = 0$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-blue-900">$0$ (Origem)</td>
+                                </tr>
+                                <tr class="bg-slate-50/50">
+                                    <td class="py-2.5 px-4 text-center font-bold text-blue-900">$0$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-blue-700">$+1$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-rose-700">$-6$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-rose-700">$-5$ (5 à esq.)</td>
+                                    <td class="py-2.5 px-4 text-center font-mono text-sm">$0 + (-5) = -5$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-rose-700">$-5$</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 px-4 text-center font-bold text-rose-700">$-5$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-blue-700">$+1$</td>
+                                    <td class="py-2.5 px-4 text-center font-mono font-bold text-rose-700">$-6$</td>
+                                    <td class="py-2.5 px-4 text-center font-bold text-rose-700">$-5$ (5 à esq.)</td>
+                                    <td class="py-2.5 px-4 text-center font-mono text-sm">$-5 + (-5) = -10$</td>
+                                    <td class="py-2.5 px-4 text-center font-black text-rose-900 bg-rose-100">$-10$ (VITÓRIA)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Rodapé da Página -->
+            <footer class="p-8 border-t border-slate-200 bg-slate-50 text-center text-sm text-slate-500">
+                Material de Apoio Didático — Recomposição de Matemática • Ensino Fundamental
+            </footer>
+
+        </article>
+    </main>
+
+</body>
+</html>
